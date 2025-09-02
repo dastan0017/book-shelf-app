@@ -32,7 +32,11 @@ export default function Index() {
           <Text>Error: {moviesError.message}</Text>
         ) : (
           <View className="flex-1 mt-5">
-            <SearchBar placeholder="Search for a book" onPress={() => router.push('/search')} />
+            <SearchBar
+              placeholder="Search for a book"
+              onPress={() => router.push('/search')}
+              value=""
+            />
 
             <Text className="text-lg text-white font-bold mb-3 mt-5">Latest Movies</Text>
             <FlatList
