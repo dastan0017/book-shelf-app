@@ -1,7 +1,15 @@
 import { icons } from '@/constants/icons'
 import { images } from '@/constants/images'
 import { Tabs } from 'expo-router'
-import { Image, ImageBackground, ImageSourcePropType, Text, View } from 'react-native'
+import {
+  Image,
+  ImageBackground,
+  ImageSourcePropType,
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  View,
+} from 'react-native'
 
 const TabBarIcon = ({
   focused,
@@ -37,8 +45,8 @@ export default function TabsLayout() {
       screenOptions={{
         tabBarShowLabel: false,
         tabBarItemStyle: {
-          width: '100%',
-          height: '100%',
+          flex: 1,
+          height: 60,
           justifyContent: 'center',
           alignItems: 'center',
         },
@@ -53,6 +61,12 @@ export default function TabsLayout() {
           borderWidth: 1,
           borderColor: '#0F0D23',
         },
+        tabBarButton: props => (
+          <TouchableOpacity
+            {...(props as TouchableOpacityProps)}
+            hitSlop={{ top: 10, bottom: 10, left: 15, right: 15 }} // Extends pressable area around each tab
+          />
+        ),
       }}
     >
       <Tabs.Screen

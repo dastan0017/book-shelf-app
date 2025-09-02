@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native'
 
-const BookDetails = () => {
+const MovieDetails = () => {
   return (
     <View>
       <Text>Book Details</Text>
@@ -8,4 +8,4 @@ const BookDetails = () => {
   )
 }
 
-export default BookDetails
+export default MovieDetails
