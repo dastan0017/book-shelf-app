@@ -5,7 +5,7 @@ interface Props {
   placeholder: string
   onPress?: () => void
   onChangeText?: (text: string) => void
-  value: string
+  value?: string
 }
 export default function SearchBar({ placeholder, onPress, onChangeText, value }: Props) {
   return (

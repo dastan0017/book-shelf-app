@@ -2,6 +2,7 @@ import MovieCard from '@/components/MovieCard'
 import SearchBar from '@/components/SearchBar'
 import { images } from '@/constants/images'
 import { fetchMovies } from '@/services/api'
+import { updateSearchCount } from '@/services/appwrite'
 import useFetch from '@/services/useFetch'
 import { useEffect, useState } from 'react'
 import { ActivityIndicator, FlatList, Image, Text, View } from 'react-native'
@@ -38,6 +39,12 @@ const Search = () => {
     }
     fetchMoviesData()
   }, [debouncedQuery])
+
+  useEffect(() => {
+    if (movies?.length > 0 && movies?.[0] && debouncedQuery.trim()) {
+      updateSearchCount(debouncedQuery, movies?.[0])
+    }
+  }, [movies, debouncedQuery])
 
   return (
     <View className="flex-1 bg-primary">
